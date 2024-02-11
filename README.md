@@ -1,5 +1,8 @@
 # Multithreaded TCP Server 
 
+Name : Nischal H S
+SRN : PES1UG21CS393
+
 HP Assignement: PThreads
 
 Build a multi-threaded server in C++, make use of PThreads for parallel programming.
