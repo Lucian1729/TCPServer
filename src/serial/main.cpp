@@ -62,6 +62,8 @@ void handle_client(int client_socket) {
             } else if (strcmp(token, "COUNT") == 0) {
                 send(client_socket, (std::to_string(KV_DATASTORE.size()) + "\n").c_str(), std::to_string(KV_DATASTORE.size()).size() + 1, 0);
             } else if (strcmp(token, "END") == 0) {
+				send(client_socket, "\n", 1, 0);
+                close(client_socket);
                 break;
             } else {
                 send(client_socket, "INVALID\n", 8, 0);
