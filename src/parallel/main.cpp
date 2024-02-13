@@ -139,6 +139,13 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
+    int reuse_addr=1;
+
+    if (setsockopt(server_socket, SOL_SOCKET, SO_REUSEADDR, &reuse_addr, sizeof(int)) < 0) {
+        std::cerr << "Error setting socket option" << std::endl;
+        return 1;
+    }
+
     memset((char *)&server_addr, 0, sizeof(server_addr));
     server_addr.sin_family = AF_INET;
     server_addr.sin_addr.s_addr = INADDR_ANY;
